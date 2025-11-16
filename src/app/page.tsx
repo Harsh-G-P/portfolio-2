@@ -1,67 +1,50 @@
 "use client";
 
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Mail } from "lucide-react";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const rotateX = useTransform(mouseY, [0, 600], [10, -10]);
-  const rotateY = useTransform(mouseX, [0, 1200], [-10, 10]);
-
   if (!mounted) return null;
 
   return (
     <main
-      onMouseMove={(e) => {
-        mouseX.set(e.clientX);
-        mouseY.set(e.clientY);
-      }}
       className="relative flex flex-col lg:flex-row justify-center items-center min-h-screen overflow-hidden px-6 sm:px-10 lg:px-20 pt-10 sm:pt-16"
-
     >
       {/* Subtle Background Animation */}
       <motion.div
-        className="absolute w-[500px] sm:w-[600px] h-[500px] sm:h-[600px] bg-cyan-300/20 blur-[120px] rounded-full top-[-100px] left-[-200px] -z-10"
+        className="absolute w-[350px] sm:w-[450px] h-[350px] sm:h-[450px] bg-cyan-300/20 blur-3xl rounded-full top-[-100px] left-[-140px] -z-10"
         animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
         transition={{ repeat: Infinity, duration: 10 }}
       />
       <motion.div
-        className="absolute w-[600px] sm:w-[700px] h-[600px] sm:h-[700px] bg-blue-300/20 blur-[140px] rounded-full bottom-[-200px] right-[-100px] -z-10"
+        className="absolute w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] bg-blue-300/20 blur-3xl rounded-full bottom-[-140px] right-[-100px] -z-10"
         animate={{ x: [0, -40, 0], y: [0, -30, 0] }}
         transition={{ repeat: Infinity, duration: 12 }}
       />
 
       {/* Left Side — Profile Image */}
       <motion.div
-        style={{ rotateX, rotateY }}
         initial={{ opacity: 0, x: -80 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.2 }}
         className="lg:w-1/2 flex justify-center lg:justify-end mb-14 lg:mb-0"
       >
-        <motion.div
-          className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-96 md:h-96"
-          whileHover={{ scale: 1.05, rotateY: 5 }}
-          transition={{ type: "spring", stiffness: 200 }}
-        >
+        <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-96 md:h-96 tilt">
           <Image
-            src="/h1.png" // replace with your profile image
+            src="/h1.png"
             alt="Harsh Prajapati"
             fill
             className="object-cover rounded-full"
           />
-        </motion.div>
+        </div>
       </motion.div>
 
       {/* Right Side — Text and Buttons */}
       <motion.div
-        style={{ rotateX, rotateY }}
         className="relative z-10 text-center lg:text-left select-none lg:w-1/2 p-6 sm:p-10"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -100,11 +83,7 @@ export default function Home() {
           <a href="https://github.com/Harsh-G-P" target="_blank" className="hover:text-cyan-600 transition">
             <Github size={26} />
           </a>
-          {/*
-          <a href="" target="_blank" className="hover:text-cyan-600 transition">
-            <Linkedin size={26} />
-          </a>
-           */}
+
           <a href="mailto:hp3032004@gmail.com" className="hover:text-cyan-600 transition">
             <Mail size={26} />
           </a>
@@ -129,8 +108,6 @@ export default function Home() {
           </motion.a>
         </div>
       </motion.div>
-
-      
     </main>
   );
 }
