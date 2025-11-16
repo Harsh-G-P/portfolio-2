@@ -90,7 +90,9 @@ export default function About() {
                 "Stripe API",
                 "JWT Authentication",
                 "REST APIs",
-                "Cloudinary"
+                "Cloudinary",
+                "GitHub",
+                "Vercel"
               ]
                 .map((skill) => (
                   <motion.div
