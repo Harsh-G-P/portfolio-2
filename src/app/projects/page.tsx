@@ -32,13 +32,13 @@ const projects = [
     link: "https://friend-chat-murex.vercel.app/",
   },
   {
-  id: 3,
-  title: "Retro Windows 95 Portfolio",
-  description:
-    "A nostalgic Windows 95–themed portfolio built with Next.js and Tailwind CSS, featuring draggable desktop icons, pixel fonts, retro boot animations, and an interactive UI that feels like using an old-school operating system.",
-  image: "/4.png",
-  link: "https://portfolio-30-gamma.vercel.app",
-},
+    id: 3,
+    title: "Retro Windows 95 Portfolio",
+    description:
+      "A nostalgic Windows 95–themed portfolio built with Next.js and Tailwind CSS, featuring draggable desktop icons, pixel fonts, retro boot animations, and an interactive UI that feels like using an old-school operating system.",
+    image: "/4.png",
+    link: "https://portfolio-30-gamma.vercel.app",
+  },
 ];
 
 export default function Projects() {
@@ -93,7 +93,12 @@ export default function Projects() {
 
 
               {/* Overlay (blur only on hover) */}
-              <div className="absolute inset-0 bg-transparent backdrop-blur-sm opacity-0 hover:opacity-100 transition flex flex-col items-center justify-center space-y-3">
+              <div
+                className="absolute inset-0 bg-transparent backdrop-blur-sm 
+                opacity-100 sm:opacity-0 sm:hover:opacity-100 
+  transition flex flex-col items-center justify-center space-y-3"
+              >
+
                 <h2 className="text-xl sm:text-2xl font-bold text-blue-400">
                   {project.title}
                 </h2>
