@@ -37,7 +37,7 @@ const projects = [
     description:
       "A nostalgic Windows 95–themed portfolio built with Next.js and Tailwind CSS, featuring draggable desktop icons, pixel fonts, retro boot animations, and an interactive UI that feels like using an old-school operating system.",
     image: "/4.png",
-    link: "https://portfolio-30-gamma.vercel.app",
+    link: "https://portfolio-1-ochre-beta.vercel.app",
   },
 ];
 
